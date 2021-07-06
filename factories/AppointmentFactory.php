@@ -77,7 +77,7 @@ class AppointmentFactory
         $this->endTime = $endTime;
         $this->repeatInterval = $repeatInterval;
         $this->title = $title;
-        if (!empty($this->endDate)) {
+        if (!empty($endDate)) {
             $this->endDate = new \DateTime($endDate);
         }
     }
@@ -139,6 +139,10 @@ class AppointmentFactory
 
     public static function fromForm(AppointmentForm $form)
     {
-        return static::createAppointment($form->dateStart, $form->timeStart, $form->timeEnd, $form->patientName, $form->getRepeatInterval());
+        $dateEnd = null;
+        if ($form->isRepeating()) {
+            $dateEnd = $form->dateEnd;
+        }
+        return static::createAppointment($form->dateStart, $form->timeStart, $form->timeEnd, $form->patientName, $form->getRepeatInterval(),$dateEnd);
     }
 }
