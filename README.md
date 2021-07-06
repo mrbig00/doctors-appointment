@@ -26,6 +26,7 @@ INSTALLATION
 * Clone the repository
 * Run ``composer install``
 * Point your webserver to the ``htdocs`` folder
+* Create and edit the db config file by copying the ``config/db_local.php.template`` to ``config/db_local.php`` and editing it's content
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
